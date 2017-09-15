@@ -24,6 +24,13 @@ architecture, all-in-one demo, and installation and configuration. Guides
 
 ## Prerequisites
 
+### Git-lfs
+
+Before cloning the repo, you'll need to [install git-lfs](https://git-lfs.github.com/).
+Otherwise you won't be able to see any of the images.
+
+### Ruby
+
 Jekyll is built with ruby. There are many ways to install ruby on a
 mac. Pick the one that is least infuriating to you. Using homebrew is a
 fine answer. You'll also need gems (installed with ruby if you're

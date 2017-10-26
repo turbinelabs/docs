@@ -142,10 +142,10 @@ $ aws ecs \
 
 ### Create tbnproxy
 
-Create tbnproxy with this task definition and note the NGINX variables you'll
-need to modify with values for your environment. tbnproxy will be visible to
-the web, and your customer's traffic. tbnproxy will also need network
-connectivity to all ECS tasks.
+Create tbnproxy with this task definition and note the variables you'll need to
+modify with values for your environment. tbnproxy will be visible to the web,
+and your customer's traffic. tbnproxy will also need network connectivity to
+all ECS tasks.
 
 This [tbnproxy task definition](examples/ecs/tbnproxy_spec.json) can be adapted
 to your needs or environment, including the `signed_token` obtained with `tbnctl`:
@@ -158,7 +158,10 @@ Create a service with this task definition on your ECS cluster.
 
 ### Create a service to expose tbnproxy
 
-With your task definition created, we can then expose tbnproxy to the internet using an Elastic Load Balancer. First create your ELB using the management console, with no listeners. Now expose tbnproxy to the ELB by running Create Service from the [ECS control panel](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html#service-configure-load-balancing) or through the CLI:
+With your task definition created, we can then expose tbnproxy to the internet
+using an Elastic Load Balancer. First create your ELB using the management
+console, with no listeners. Now expose tbnproxy to the ELB by running Create
+Service from the [ECS control panel](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service.html#service-configure-load-balancing) or through the CLI:
 
 ```console
 $ aws ecs \

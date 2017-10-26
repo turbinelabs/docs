@@ -203,13 +203,6 @@ for the correct 301:
 ```
 $ curl -k -I -H 'host:yourdomain.com' yourdomain.com:80
 HTTP/1.1 301 Moved Permanently
-Content-Length: 185
-Content-Type: text/html
-Date: Wed, 23 Aug 2017 21:53:46 GMT
-Location: https://yourdomain.com/
-Server: nginx/1.12.1
-X-Content-Type-Options: nosniff
-Connection: keep-alive
 ```
 
 Note: because this is a separate object, any `Route` objects and associated

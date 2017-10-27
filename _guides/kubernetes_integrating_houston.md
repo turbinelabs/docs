@@ -26,16 +26,20 @@ cluster in order to collect, route, and move faster with your code.
 
 ## Prerequisites
 
-This guide assumes you’ve looked over our [Kubernetes Guide](./kubernetes.html)
-for Houston, and have a Kubernetes environment configured. You may also
-find our [Customizing tbncollect](./kubernetes_customizing_tbncollect.html)
-guide useful as you configure your environment.
+This guide assumes you’ve looked over our [Kubernetes Guide](./kubernetes.html) for Houston, and
+have a Kubernetes environment configured. You may also find our
+[Customizing tbncollect](./kubernetes_customizing_tbncollect.html) guide useful as you configure your environment.
 
 ## CI/CD to Houston
 
 Any CI or CD tool works well with Houston. Ultimately, CD infrastructure
-should set up new pods with [these labels](#labels), and Houston takes it from
-there. Be sure to read the [reasons to decouple](https://blog.turbinelabs.io/deploy-not-equal-release-part-one-4724bc1e726b) [release from deployment](https://blog.turbinelabs.io/deploy-not-equal-release-part-two-acbfe402a91c).
+should set up new pods with [these labels](#labels), and Houston takes it from there. If
+you'd like to see how Houston works with CircleCI, as an example, check
+out [this guide](https://circleci.com/blog/continuous-release-with-circleci-and-houston/).
+
+Also, be sure to read the [reasons to decouple](https://blog.turbinelabs.io/deploy-not-equal-release-part-one-4724bc1e726b) [release from deployment](https://blog.turbinelabs.io/deploy-not-equal-release-part-two-acbfe402a91c) to see how
+well CI/CD and Houston pair.
+
 
 ## Proxy
 

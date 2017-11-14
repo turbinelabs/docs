@@ -24,10 +24,10 @@ providing a flexible, yet stable experience to customers that sets it apart.
 ## Traffic Control
 
 Houston can replace your existing web proxy, or work in conjunction
-with it. Compared to popular proxies (NGINX, HAProxy, ELB, ALB) Houston
-supports finer grained request routing, and has a more detailed view of your
-deployed services. Houston's proxy is dynamically configured directly from the
-Turbine Labs API, so changes to configuration are simple and responsive.
+with it. By using Envoy, Houston supports finer grained request routing that
+other proxies, and has a more detailed view of your deployed services.
+tbnproxy is dynamically configured directly from the Turbine Labs API,
+so changes to configuration are simple and responsive.
 
 ## Logging
 

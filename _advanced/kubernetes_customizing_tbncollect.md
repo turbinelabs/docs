@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Customizing tbncollect
-child: true
 ---
 
 [//]: # ( Copyright 2017 Turbine Labs, Inc.                                   )
@@ -22,13 +21,13 @@ child: true
 ## Prerequisites
 
 This guide assumes you have read our
-[guide to setting up Houston on Kubernetes](./kubernetes.html), and have an
+[guide to setting up Houston on Kubernetes](../guides/kubernetes.html), and have an
 existing Kubernetes deployment.
 
 ## Custom deployment settings
 
 In the previous Kubernetes guide, we instructed users to setup tbncollect using
-our [pre-baked yaml file](examples/kubernetes/tbncollect_spec.yaml), but
+our [pre-baked yaml file](examples/advanced/custom_tbncollect_spec.yaml), but
 this file makes a few assumptions about your environment. First of all, it
 assumes you have a named http port, then a label named `tbn_cluster`, as well
 as a few more settings.
@@ -43,10 +42,10 @@ the --port-name flag becomes TBNCOLLECT_KUBERNETES_PORT_NAME.
 These settings are likely different on your existing Kubernetes cluster, so
 it's important to configure your tbncollect yaml file to match your environment.
 
-*[example custom_tbncollect_spec.yaml](examples/kubernetes/custom_tbncollect_spec.yaml)*
+*[example custom_tbncollect_spec.yaml](../guides/examples/kubernetes/tbncollect_spec.yaml)*
 
 ```yaml
-{% include_relative examples/kubernetes/custom_tbncollect_spec.yaml %}
+{% include_relative examples/custom_tbncollect_spec.yaml %}
 ```
 
 Note the values near the bottom of the yaml file—these are a few of the values

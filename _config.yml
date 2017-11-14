@@ -44,3 +44,6 @@ collections:
   guides:
     output: true
     print_order: 2
+  advanced:
+    output: true
+    print_order: 3

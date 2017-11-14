@@ -19,9 +19,9 @@ time_to_complete: 10 minutes
 
 [//]: # (Quick Start)
 
-This guide walks you through setting up, and using an all-in-one example app, as
-well as a few exercises to illustrate what Houston and the Turbine Labs API can
-accomplish.
+This guide walks you through setting up Houston, including the Envoy-based
+tbnproxy, customer-centric stats segmented by service, and a log of all changes
+to routing configuration.
 
 ## Signing up for an account
 
@@ -30,7 +30,6 @@ account. [Click here to get started.](https://turbinelabs.io/contact/)
 
 {% include guides/access_token.md %}
 
-
 ## What's in the All-In-One image?
 
 ### tbnproxy and tbncollect
@@ -38,8 +37,9 @@ account. [Click here to get started.](https://turbinelabs.io/contact/)
 These two applications will run in a real-world deployment, connected to Turbine
 Labs' API.
 
-- **tbnproxy**: The Turbine Labs reverse proxy as well as an admin agent that
-maintains proxy configuration and sends metrics to the Turbine Labs Service.
+- **tbnproxy**: The Envoy-based Turbine Labs reverse proxy, and an admin agent
+that that maintains proxy configuration and sends metrics to the Turbine
+Labs Service. The metrics are then segmented and exposed in the management UI.
 - **tbncollect**: A service discovery agent that observes the service instances,
 updating the Turbine Labs Service as services or applications come and go. In
 this demo, the collector is watching for files instead of API instances.
@@ -59,7 +59,7 @@ This app is used to demonstrate the use of Houston through a simple
 visualization of routing and responses, but is disposable after experimenting
 with this demo.
 
-## Starting the all-in-one example
+## Installing tbncollect and tbnproxy
 
 The three environment variables you'll need to set in order to run the demo are:
 
@@ -111,63 +111,12 @@ If you see this error, restart Docker and re-run the all-in-one container.
 
 {% include guides/incremental_release.md %}
 
-### Browser overrides
-
-Let’s test our yellow dev version before we release it to customers. tbnproxy
-allows you to route to service instances based on headers set in the request.
-Navigate to [app.turbinelabs.io](https://app.turbinelabs.io), log in and select
-the zone you’re working with (all-in-one-demo by default). Click "Settings" ->
-"Edit Routes", and select all-in-one-demo:80/api from the top left dropdown. You
-should see the following screen
-
-<img src="../assets/all-in-one_edit_route.png"/>
-
-Click “Add Rule” from the top right, and enter the following values:
-
-IF `Header: X-Tbn-Version & version` Send `1 to all-in-one-server`.
-
-<img src="../assets/all-in-one_add_rule.png"/>
-
-This tells the proxy to look for a header called `X-Tbn-Version`. If the proxy
-finds that header, it uses the value to find servers in the all-in-one-server
-cluster that have a matching version tag. For example, setting `X-Tbn-Version:
-blue` on a request would match blue production servers, and `X-Tbn-Version:
-yellow` would match yellow dev servers.
-
-The all-in-one client converts a `X-Tbn-Version` query parameter into a header
-in calls to the backend; if you navigate to
-[localhost?X-Tbn-Version=yellow](http://localhost?X-Tbn-Version=yellow) you
-should see all yellow boxes. Meanwhile going to [localhost](http://localhost)
-without that parameter still shows blue or green based on the release state of
-previous steps in this guide.
-
-<img src="https://d16co4vs2i1241.cloudfront.net/uploads/tutorial_image/file/619233248442058713/9e580867275ee1a7fd6b502c8b5c8e6fbc24ea8ec31759ac5b2326ea7fdc264c/column_sized_Screen_Shot_2016-10-28_at_10.43.02_AM.png" height="50%" width="50%"/>
-
-This technique is extremely powerful. New software was tested in
-production without customers being affected. You were able to test the new
-software on the live site before releasing to customers. In a real world
-scenario your testers can perform validation, you can load test, and you can
-demo to stakeholders without running through a complicated multi-environment
-scenario, even during another release.
-
-{% include guides/testing_latency_and_error_rates.md %}
-
-### Driving synthetic traffic
-
-If you'd like to drive steady traffic to your all-in-one server without keeping
-a browser window open, you can add `ALL_IN_ONE_DRIVER=1` to the environment variables in your `docker run` invocation. You can also add error rates and
-latencies for various using environment variables:
-
-```console
-$ docker run -p 80:80 \
-  -e "TBNPROXY_API_KEY=<signed_token>" \
-  -e "TBNPROXY_API_ZONE_NAME=all-in-one-demo" \
-  -e "TBNPROXY_PROXY_NAME=all-in-one-demo-proxy" \
-  -e "ALL_IN_ONE_DRIVER=1" \
-  -e "ALL_IN_ONE_DRIVER_LATENCIES=blue:50ms,green:20ms" \
-  -e "ALL_IN_ONE_DRIVER_ERROR_RATES=blue:0.01,green:0.005" \
-  turbinelabs/all-in-one:0.13.0
-```
+These examples illustrate the changelog, as well as the service-segmented stats
+that you will find at [app.turbinelabs.io](http://app.turbinelabs.io) when
+integrating Houston with your own apps and services. Observability is a key
+component of modern software development and production environments, and by
+focussing on customer-based metrics, with rich granularity, we think Houston
+will greatly aid your team.
 
 ## Next steps
 

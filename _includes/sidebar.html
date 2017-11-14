@@ -8,6 +8,9 @@
         <p>
         {% assign sorted_guides = site.guides | sort_natural: 'print_order' %}
         {% include sidebar_section.html collection=sorted_guides %}
+        <p>
+        {% assign sorted_adv = site.advanced | sort_natural: 'print_order' %}
+        {% include sidebar_section.html collection=sorted_adv %}
     </nav>
 
     <small>&copy; {{ site.time | date: '%Y' }} Turbine Labs, Inc.<br/>All rights reserved.</small>

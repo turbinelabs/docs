@@ -2,7 +2,6 @@
 layout: page
 title: Integrating Houston with Your Kubernetes Environment
 time_to_complete: 5 minutes
-child: true
 ---
 
 [//]: # ( Copyright 2017 Turbine Labs, Inc.                                   )
@@ -26,7 +25,7 @@ cluster in order to collect, route, and move faster with your code.
 
 ## Prerequisites
 
-This guide assumes you’ve looked over our [Kubernetes Guide](./kubernetes.html) for Houston, and
+This guide assumes you’ve looked over our [Kubernetes Guide](../kubernetes.html) for Houston, and
 have a Kubernetes environment configured. You may also find our
 [Customizing tbncollect](./kubernetes_customizing_tbncollect.html) guide useful as you configure your environment.
 
@@ -92,10 +91,10 @@ of your yaml config file.
 e.g., version control tag, branch, or SHA. Located in `spec.template.labels` of
 your yaml config file.
 
-Here is an example file from the [Kubernetes guide](./kubernetes.md) to illustrate these labels:
+Here is an example file from the [Kubernetes guide](../kubernetes.html) to illustrate these labels:
 
 ```yaml
-{% include_relative examples/kubernetes/label.yaml %}
+{% include_relative examples/label.yaml %}
 ```
 
 ### Port labels

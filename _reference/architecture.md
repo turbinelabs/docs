@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Houston Architecture
+title: Architecture
 print_order: 3
 ---
 
@@ -16,8 +16,8 @@ print_order: 3
 [//]: # ( implied. See the License for the specific language governing        )
 [//]: # ( permissions and limitations under the License.                      )
 
-Houston, by Turbine Labs, consists of several components. Our proxy is
-installed in your environment, along with a service discovery collector
+Houston, by Turbine Labs, consists of several components. Our Envoy-based proxy
+is installed in your environment, along with a service discovery collector
 configured for your infrastructure. Our hosted API, web application, and
 analytics backend provide a control plane to observe and manage your
 application.
@@ -26,21 +26,20 @@ application.
 
 ## In your environment
 
-### tbncollect
+### tbncollect – Service discovery made easy
 
 tbncollect is an agent that scans your environment for running service clusters
 and instance labels. It has integrations with Kubernetes, DC/OS, Consul, ECS,
-and EC2, with more integrations on their way. It can also poll a YAML or JSON
-file, for static or custom integrations. Changes to your environment are
-mirrored to the Turbine Labs API.
+and EC2. It can also poll a YAML or JSON file, for static or custom
+integrations. Changes to your environment are mirrored to the Turbine Labs API.
 
-### tbnproxy
+### tbnproxy – Envoy-based, fast, and GUI configurable
 
-Our proxy is responsible for receiving customer requests and dispatching them
-to appropriate service instances. An admin server runs alongside the proxy, and
-is responsible for managing its configuration and forwarding request/response
-metrics to the Turbine Labs API. When it detects changes in your environment,
-it updates the proxy configuration.
+Our Envoy-based proxy is responsible for receiving customer requests and
+dispatching them to appropriate service instances. An admin server runs
+alongside the proxy, and is responsible for managing its configuration and
+forwarding request/response metrics to the Turbine Labs API. When it detects
+changes in your environment, it updates the proxy configuration.
 
 ## Hosted by Turbine Labs
 
@@ -55,19 +54,16 @@ interface for request/response metrics dimensionalization.
 ### Management web app
 
 The UI, built on top of our public API, provides a simple, intuitive
-interface for managing and observing the state of your environment. You
-can <a href="#incremental-release">release new software</a>, <a href="#monolith">migrate to
-new architectures</a>, and triage incidents, all in a single, consistent
-interface. You can understand the current behavior of your site, and know what
-has changed, at any level of granularity.
+interface for managing and observing the state of your environment. Create and
+modify Envoy configurations without modifying YAML, instantly. Also, view
+customer-based metrics, rich changelogs to triage incidents, and ensure the
+smooth running of your services all in a single, consistent interface. From a
+top-level view, to any level of granularity, Houston gives you data and
+flexible observability.
 
-# Supported deployment platforms
 
+### Supported deployment platforms
 While the Turbine Labs software will run on a wide variety of architectures,
-we've built specific integrations with
-[Kubernetes]({{ "/guides/kubernetes.html" | relative_url }}),
-[DC/OS]({{ "/guides/dcos.html" | relative_url }}),
-[Consul]({{ "/guides/consul.html" | relative_url }}),
-[EC2]({{ "/guides/ec2.html" | relative_url }}), and [ECS]({{ "/guides/ecs.html" | relative_url }}). We plan to add more integrations in the future, and our
-YAML/JSON file polling mechanism provides extensibility if you wish to create
-your own.
+we've built specific integrations with [Kubernetes]({{ "/guides/kubernetes.html" | relative_url }}), [DC/OS]({{ "/guides/dcos.html" | relative_url }}), [Consul]({{ "/guides/consul.html" | relative_url }}), [EC2]({{ "/guides/ec2.html" | relative_url }}), and
+[ECS]({{ "/guides/ecs.html" | relative_url }}). We plan to add more integrations in the future, and our YAML/JSON
+file polling mechanism provides extensibility if you wish to create your own.

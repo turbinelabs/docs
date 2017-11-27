@@ -13,7 +13,7 @@
 
 # Docs
 
-[![Apache 2.0](https://img.shields.io/hexpm/l/plug.svg)](LICENSE)
+[![Apache 2.0](https://img.shields.io/badge/license-apache%202.0-blue.svg)](LICENSE)
 
 This repository hosts the source files for https://docs.turbinelabs.io. It is
 managed as a jekyll site, using categories to group content. Reference (located

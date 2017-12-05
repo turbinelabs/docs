@@ -81,7 +81,7 @@ $ docker run -p 80:80 \
   -e "ALL_IN_ONE_DRIVER=1" \
   -e "ALL_IN_ONE_DRIVER_LATENCIES=blue:50ms,green:20ms" \
   -e "ALL_IN_ONE_DRIVER_ERROR_RATES=blue:0.01,green:0.005" \
-  turbinelabs/all-in-one:0.13.0
+  turbinelabs/all-in-one:0.14.0
 ```
 
 ## Conclusion

@@ -5,7 +5,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "turbinelabs/all-in-one-server:0.13.0",
+      "image": "turbinelabs/all-in-one-server:0.14.0",
       "network": "BRIDGE",
       "portMappings": [
         {

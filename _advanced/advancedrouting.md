@@ -25,48 +25,14 @@ example, in order to show what other release routing capabilities are possible
 with tbnproxy deployed. The all-in-one-demo client and server should now be
 running in your enviroment.
 
-## Browser overrides
-
-Let’s test our yellow dev version before we release it to customers. tbnproxy
-allows you to route to service instances based on headers set in the request.
-Navigate to [app.turbinelabs.io](https://app.turbinelabs.io), log in and select
-the zone you’re working with (all-in-one-demo by default). Click "Settings" ->
-"Edit Routes", and select all-in-one-demo:80/api from the top left dropdown. You
-should see the following screen
-
-<img src="../assets/all-in-one_edit_route.png"/>
-
-Click “Add Rule” from the top right, and enter the following values:
-
-IF `Header: X-Tbn-Version & version` Send `1 to all-in-one-server`.
-
-<img src="../assets/all-in-one_add_rule.png"/>
-
-This tells the proxy to look for a header called `X-Tbn-Version`. If the proxy
-finds that header, it uses the value to find servers in the all-in-one-server
-cluster that have a matching version tag. For example, setting `X-Tbn-Version:
-blue` on a request would match blue production servers, and `X-Tbn-Version:
-yellow` would match yellow dev servers.
-
-The all-in-one client converts a `X-Tbn-Version` query parameter into a header
-in calls to the backend; if you navigate to
-[localhost?X-Tbn-Version=yellow](http://localhost?X-Tbn-Version=yellow) you
-should see all yellow boxes. Meanwhile going to [localhost](http://localhost)
-without that parameter still shows blue or green based on the release state of
-previous steps in this guide.
-
-<img src="https://d16co4vs2i1241.cloudfront.net/uploads/tutorial_image/file/619233248442058713/9e580867275ee1a7fd6b502c8b5c8e6fbc24ea8ec31759ac5b2326ea7fdc264c/column_sized_Screen_Shot_2016-10-28_at_10.43.02_AM.png" height="50%" width="50%"/>
-
-This technique is extremely powerful. New software was tested in
-production without customers being affected. You were able to test the new
-software on the live site before releasing to customers. In a real world
-scenario your testers can perform validation, you can load test, and you can
-demo to stakeholders without running through a complicated multi-environment
-scenario, even during another release.
+{%
+  include guides/testing_before_release.md
+  title="Browser overrides"
+%}
 
 {% include guides/testing_latency_and_error_rates.md %}
 
-## Driving synthetic traffic
+### Driving synthetic traffic
 
 If you'd like to drive steady traffic to your all-in-one server without keeping
 a browser window open, you can add `ALL_IN_ONE_DRIVER=1` to the environment

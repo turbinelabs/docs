@@ -12,9 +12,9 @@ information to the routing engine.
 Your environment should look like the following:
 
 {% if include.all_in_one %}
-<img src="https://img.turbinelabs.io/2017-05-08a/API-LM.png"/>
+<img src="/assets/api_lm.png"/>
 {% else %}
-<img src="https://img.turbinelabs.io/2017-05-08a/API-LM-only-blue.png"/>
+<img src="/assets/api_lm_only_blue.png"/>
 {% endif %}
 
 There is a single domain, `{% if include.all_in_one %}all-in-one-demo:80{% else

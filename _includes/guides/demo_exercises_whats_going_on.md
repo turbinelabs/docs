@@ -27,7 +27,7 @@ it paints the box that color, then waits a random amount of time to make another
 request. While it’s waiting the colors in the box fade. Users are organized into
 rows based on URL.
 
-<img height="50%" width="50%" src="https://d16co4vs2i1241.cloudfront.net/uploads/tutorial_image/file/684824296811398630/85fd3f987358bbbf866ace1ac6193f07fb5788a4302291a8e29c3eef7ac8c973/column_sized_Screen_Shot_2017-01-26_at_9.40.43_PM.png"/>
+<img height="50%" width="50%" src="/assets/spray_blue.png"/>
 
 {% if include.all_in_one %}
 The colors indicate the following:

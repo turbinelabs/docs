@@ -4,7 +4,7 @@ title: Kubernetes Guide
 time_to_complete: 10 minutes
 ---
 
-[//]: # ( Copyright 2017 Turbine Labs, Inc.                                   )
+[//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )
 [//]: # ( you may not use this file except in compliance with the License.    )
 [//]: # ( You may obtain a copy of the License at                             )
 [//]: # (                                                                     )

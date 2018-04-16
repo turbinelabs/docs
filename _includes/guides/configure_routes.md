@@ -1,33 +1,41 @@
 ## Configure routes
 
-Now we have a proxy running and exposed to the Internet, along with clusters and
-instances configured in the Turbine Labs service. Next we map requests to
-clusters. Log in to https://app.turbinelabs.io with your email address and API
-key.
+Now we have a Proxy running and exposed to the Internet, along with Services and
+instances configured in the Turbine Labs API. Next we map requests to
+Services. Log in to https://app.turbinelabs.io.
 
-First we'll create a route to send traffic to the all-in-one client.
+First we'll create a Route Group and Route to send traffic to the all-in-one
+client.
 
 1. Make sure you have the 'testbed' zone selected in the top left portion of the
 screen.
-2. Click the "Settings" menu in the top right portion of the screen, and then
-select "Edit Routes".
-3. Click the "More" menu, then select "Add Route".
-4. Select your domain in the domain drop down
-5. Enter "/" in the path field
-6. Click the release group dropdown and select "Create New Release Group..."
-7. Select "all-in-one-client" from the service drop down
-8. Enter "client" in the release group name field
-9. Click the "Create Route + Release Group" button
+2. Click the "+ MORE" menu in the top right portion of the screen, and then
+select "Create Route Group".
+3. Select "all-in-one-client" from the service drop down
+4. Name your release group "all-in-one-client"
+5. Click "CREATE"
+6. Click the "HOUSTON" logo to return to the main screen
+7. Click the "More" menu, then select "Create Route".
+8. Select your Domain in the domain drop down
+9. Enter "/" in the path field
+10. Click the Route Group dropdown and select "all-in-one-client"
+11. Click "CREATE"
+12. Click the "HOUSTON" logo to return to the main screen
 
-Now we'll repeat these steps to create a route to send anything going to /api to
-the all-in-one server
+Now we'll repeat these steps to create a Route Group and Route to send anything
+going to /api to the all-in-one server
 
-1. Click the "Settings" menu in the top right portion of the screen, and then
-select "Edit Routes".
-2. Click the "More" menu, then select "Add Route".
-3. Select your domain in the domain drop down
-4. Enter "/api" in the path field
-5. Click the release group dropdown and select "Create New Release Group..."
-6. Select "all-in-one-server" from the service drop down
-7. Enter "server" in the release group name field
-8. Click the "Create Route + Release Group" button
+1. Make sure you have the 'testbed' zone selected in the top left portion of the
+screen.
+2. Click the "+ MORE" menu in the top right portion of the screen, and then
+select "Create Route Group".
+3. Select "all-in-one-server" from the service drop down
+4. Name your release group "all-in-one-server"
+5. Click "CREATE"
+6. Click the "HOUSTON" logo to return to the main screen
+7. Click the "More" menu, then select "Create Route".
+8. Select your Domain in the domain drop down
+9. Enter "/" in the path field
+10. Click the Route Group dropdown and select "all-in-one-server"
+11. Click "CREATE"
+12. Click the "HOUSTON" logo to return to the main screen

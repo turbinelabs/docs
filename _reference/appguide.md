@@ -30,20 +30,20 @@ the Zone), a list of changes to that object, and sparkline charts for other
 related objects.
 
 Return to this page at any time by clicking the Turbine Labs logo on the top
-left of the screen. Clicking on the pencil next to a Release Group will take
-you to the Release Group Editor (see [Editing Release Groups](#releasegroups)
+left of the screen. Clicking on the pencil next to a Route Group will take
+you to the Route Group Editor (see [Editing Route Groups](#routegroups)
 below)
 
 ### View Layout
 
 Each dashboard view includes a top-line set of charts showing the aggregate
-data from the currently selected Zone, Domain, Service, Release Group, or
+data from the currently selected Zone, Domain, Service, Route Group, or
 Route. Below, charts are displayed for relevant related objects. These charts
 all share a common x-axis. Each sparkline can be expanded to a larger inline
 chart view, or can be made the new top-line view.
 
 The default view is of a Zone, from which you can see sparklines for the
-underlying Domains, Services, and Release Groups. From Zone, you can explore
+underlying Domains, Services, and Route Groups. From Zone, you can explore
 the routing and release objects recursively, or choose one from the dropdown to
 the right of your selected Zone. The chart below summarizes the different
 sparkline row types available for each top-line view:
@@ -52,28 +52,28 @@ sparkline row types available for each top-line view:
 
 Views         | Sparklines
 --------------|------------------------------------
-Zone          | Domains / Release Groups / Services
-Domain        | Routes / Release Groups / Services
-Release Group | Routes / Services
+Zone          | Domains / Route Groups / Services
+Domain        | Routes / Route Groups / Services
+Route Group   | Routes / Services
 Route         | Services
-Service       | Instances / Release Groups / Routes
+Service       | Instances / Route Groups / Routes
 
 ### Charts
 
 #### Latency
 
 Displays the 50th and 99th percentile latencies, in milliseconds, of the
-currently selected Zone, Domain, Service, Route, or Release Group.
+currently selected Zone, Domain, Service, Route, or Route Group.
 
 #### Requests
 
 Displays requests, successes, errors, and failures for the currently selected
-Zone, Domain, Service, Route, or Release Group.
+Zone, Domain, Service, Route, or Route Group.
 
 #### Success Rate
 
 Displays the percentage of requests that were successful for the currently
-selected Zone, Domain, Service, Route, or Release Group.
+selected Zone, Domain, Service, Route, or Route Group.
 
 ### Zones
 
@@ -88,14 +88,14 @@ past day, the past week, or a custom time period.
 ### Changelog
 
 All recent changes within the current view appear here. For example, in a Zone
-view, all changes to Routes, Release Groups, and Services would be present.
+view, all changes to Routes, Route Groups, and Services would be present.
 
 ### More Menu
 
 #### Add Route
 
 This option displays a screen allowing you to choose the Domain, path, and
-Release Group for your new Route. Once the new Route is created, you can add
+Route Group for your new Route. Once the new Route is created, you can add
 additional rules to it.
 
 #### Delete Route
@@ -121,38 +121,30 @@ list of Domains on your Zone.
 
 Click to return to the login screen, after logging your user out of the app.
 
-### Editing Release Groups <a name="releasegroups"></a>
+### Editing Route Groups <a name="routegroups"></a>
 
-With your Release Group selected, click the pencil to invoke edit mode. You
+With your Route Group selected, click the pencil to invoke edit mode. You
 will see the following:
 
   - Related Routes: Routes that are currently part of the selected Release
   Group.
   - Default Behavior: Set the destination and the default routing behavior for
-  traffic to any Route within this Release Group. Set the weight, and the
+  traffic to any Route within this Route Group. Set the weight, and the
   Service affected.
   - Request Specific Overrides: Select methods (GET, POST, etc), the property
   to match (cookie, header, or query), name, value, weight, and Service, along
-  with constraint keys for this Release Group.
-
-#### Undo
-
-Click to undo any unsaved changes to your Release Group.
+  with constraint keys for this Route Group.
 
 #### More
 
 This allows you to do the following:
 
-  - View Charts: This exits the Release Group editor, and returns you to the
+  - View Charts: This exits the Route Group editor, and returns you to the
   charts and metrics dashboard.
-  - Clone `<Release Group name>`: This clones the selected Release Group.
-  Group to easily keep complex changes and build off of existing Release Groups.
-  - Delete `<Release Group name>`: This deletes the selected Release Group.
-  **Note** *This is irreversible, so use carefully*
-  - View Debug Info: Displays information about your current environment,
-  useful for debugging with Turbine Labs developers.
+  - Clone `<Route Group name>`: This clones the selected Route Group.
+  Group to easily keep complex changes and build off of existing Route Groups.
 
-#### Save changes to `<Release Group name>`
+#### Save changes to `<Route Group name>`
 
 This button saves your current edits and changes. It will be greyed-out if no
 changes were made since last save.

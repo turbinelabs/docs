@@ -8,9 +8,9 @@ percentage of green traffic to customers.
 
 First, we must enable the Simple Release Workflow. Navigate to
 [app.turbinelabs.io](https://app.turbinelabs.io), log in and select the zone
-you’re working with (testbed by default). Click the "Release Groups" tab below
+you’re working with (testbed by default). Click the "Route Groups" tab below
 the top-line charts, then click the pencil icon in the "all-in-one-server" row.
-This will take you to the Release Group editor. Scroll down to "Default
+This will take you to the Route Group editor. Scroll down to "Default
 Behavior"
 
 <img src="/assets/rge_unmanaged.png" />
@@ -33,7 +33,7 @@ in the row to expand it, then click "Start Release".
 <img src="/assets/release_ready.png" />
 
 Let's send 25% of traffic to our new green version by
-moving the slider and clicking "Start Release". The release group should now
+moving the slider and clicking "Start Release". The Route Group should now
 be marked "RELEASING".
 
 <img src="/assets/releasing_green.png" />

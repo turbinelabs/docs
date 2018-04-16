@@ -7,9 +7,9 @@
 Let’s test our green version before we release it to customers. tbnproxy allows
 you to route to service instances based on headers set in the request. Navigate
 to [app.turbinelabs.io](https://app.turbinelabs.io), log in and select the zone
-you’re working with (testbed by default). Click the "Release Groups" tab
+you’re working with (testbed by default). Click the "Route Groups" tab
 below the top-line charts, then click the pencil icon in the "all-in-one-server"
-row. This will take you to the Release Group editor.
+row. This will take you to the Route Group editor.
 
 In the "Request-Specific Overrides" section, click "Add an Override". Fill in
 the values as below:

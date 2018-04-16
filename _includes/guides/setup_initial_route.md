@@ -13,7 +13,7 @@ select "Edit Routes".
    and select the api route.
 4. Change `1 to 'all-in-one-server'` to `1 to 'all-in-one-server'
    stage = prod & version = blue`
-5. Click "Save Release Group"
+5. Click "Save Route Group"
 
 If you look at the all-in-one client you should still see all blue blocks,
 because we've constrained the routing to only go to servers in the

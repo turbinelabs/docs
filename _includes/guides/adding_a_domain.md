@@ -1,7 +1,7 @@
 ## Adding a domain and proxy
 
 Tbnproxy is the container that handles request routing. It serves traffic for a
-set of domains, which in turn contain release groups and routes. We'll create
+set of domains, which in turn contain Route Groups and routes. We'll create
 the domain first.
 
 Go to https://app.turbinelabs.io, and login with your email address

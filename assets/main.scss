@@ -46,6 +46,9 @@ $color-text-success: #329f00;
 //     }
 // }
 
+// Import our custom CSS
+@import "tabs";
+
 // Import partials from the `minima` theme.
 @import "minima";
 

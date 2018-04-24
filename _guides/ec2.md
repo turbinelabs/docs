@@ -205,7 +205,7 @@ using environment variables:
 $ docker run -d \
   -e "ALL_IN_ONE_DRIVER_LATENCIES=blue:50ms,green:20ms" \
   -e "ALL_IN_ONE_DRIVER_ERROR_RATES=blue:0.01,green:0.005" \
-  turbinelabs/all-in-one-driver:0.10.1
+  turbinelabs/all-in-one-driver:0.15.1
 ```
 
 {% include guides/conclusion.md

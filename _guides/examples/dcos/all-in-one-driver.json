@@ -5,7 +5,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "turbinelabs/all-in-one-driver:0.10.1",
+      "image": "turbinelabs/all-in-one-driver:0.15.1",
       "forcePullImage": true
     }
   },

@@ -1,6 +1,6 @@
 {
   "name": "all-in-one-server-green",
-  "image": "turbinelabs/all-in-one-server:latest",
+  "image": "turbinelabs/all-in-one-server:0.15.1",
   "cpu": 1,
   "memory": 128,
   "memoryReservation": 128,

@@ -94,7 +94,7 @@ $ docker ps
 CONTAINER ID        IMAGE                                 COMMAND                  CREATED             STATUS              PORTS                    NAMES
 71988c96464a        turbinelabs/all-in-one-server:0.15.1   "/bin/sh -c 'node ..."   57 seconds ago      Up 55 seconds       0.0.0.0:8081->8080/tcp   eloquent_franklin
 bd949c322beb        turbinelabs/all-in-one-client:0.15.1   "/bin/sh -c 'envte..."   3 minutes ago       Up 3 minutes        0.0.0.0:8080->8080/tcp   upbeat_snyder
-8d759aff4c90        turbinelabs/tbncollect:latest         "/sbin/my_init"          3 minutes ago       Up 3 minutes                                 musing_roentgen
+8d759aff4c90        turbinelabs/tbncollect:0.15.1          "/sbin/my_init"          3 minutes ago       Up 3 minutes                                 musing_roentgen
 ```
 
 {% include guides/verify_tbncollect.md %}
@@ -159,10 +159,10 @@ $ docker ps
 ```shell
 CONTAINER ID        IMAGE                                 COMMAND                  CREATED             STATUS              PORTS                          NAMES
 d544d8bcecdb        turbinelabs/all-in-one-server:0.15.1   "/bin/sh -c 'node ..."   43 seconds ago      Up 41 seconds       0.0.0.0:8082->8080/tcp         fervent_kilby
-c90dea77b4fb        turbinelabs/tbnproxy:latest           "/sbin/my_init"          6 minutes ago       Up 6 minutes        0.0.0.0:80->80/tcp, 9999/tcp   serene_hodgkin
+c90dea77b4fb        turbinelabs/tbnproxy:0.15.1            "/sbin/my_init"          6 minutes ago       Up 6 minutes        0.0.0.0:80->80/tcp, 9999/tcp   serene_hodgkin
 71988c96464a        turbinelabs/all-in-one-server:0.15.1   "/bin/sh -c 'node ..."   13 minutes ago      Up 13 minutes       0.0.0.0:8081->8080/tcp         eloquent_franklin
 bd949c322beb        turbinelabs/all-in-one-client:0.15.1   "/bin/sh -c 'envte..."   15 minutes ago      Up 15 minutes       0.0.0.0:8080->8080/tcp         upbeat_snyder
-8d759aff4c90        turbinelabs/tbncollect:latest         "/sbin/my_init"          15 minutes ago      Up 15 minutes                                      musing_roentgen
+8d759aff4c90        turbinelabs/tbncollect:0.15.1          "/sbin/my_init"          15 minutes ago      Up 15 minutes                                      musing_roentgen
 ```
 
 {% include guides/your_environment.md %}

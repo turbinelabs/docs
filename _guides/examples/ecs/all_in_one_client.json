@@ -1,6 +1,6 @@
 {
   "name": "all-in-one-client",
-  "image": "turbinelabs/all-in-one-client:latest",
+  "image": "turbinelabs/all-in-one-client:0.15.1",
   "cpu": 1,
   "memory": 128,
   "memoryReservation": 128,

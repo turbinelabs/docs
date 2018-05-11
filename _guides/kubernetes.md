@@ -40,15 +40,15 @@ $ kubectl create secret generic tbnsecret --from-literal=apikey=<value of signed
 
 ## Setting up service discovery
 
-The tbncollect binary scans your Kubernetes cluster for pods and groups
-them into clusters in the Turbine Labs API. To deploy tbncollect to your
+The Rotor binary scans your Kubernetes cluster for pods and groups
+them into clusters in the Turbine Labs API. To deploy Rotor to your
 Kubernetes cluster, run
 
 ```console
-$ kubectl create -f https://docs.turbinelabs.io/guides/examples/kubernetes/tbncollect_spec.yaml
+$ kubectl create -f https://docs.turbinelabs.io/guides/examples/kubernetes/rotor_spec.yaml
 ```
 
-[Customizing tbncollect For Your Kubernetes Environment](./kubernetes_customizing_tbncollect.html)
+[Customizing Rotor For Your Kubernetes Environment](./kubernetes_customizing_rotor.html)
 
 ## The all-in-one demo
 
@@ -76,10 +76,10 @@ $ kubectl get pods
 NAME                                       READY     STATUS    RESTARTS   AGE
 all-in-one-client-680519093-jdx7g          1/1       Running   0          2m
 all-in-one-server-1015810482-rgf8f         1/1       Running   0          1m
-tbncollect-3235735371-f594t                1/1       Running   0          3m
+rotor-3235735371-f594t                     1/1       Running   0          3m
 ```
 
-{% include guides/verify_tbncollect.md %}
+{% include guides/verify_rotor.md %}
 
 {% include guides/adding_a_domain.md %}
 
@@ -156,7 +156,7 @@ NAME                                       READY     STATUS    RESTARTS   AGE
 all-in-one-client-680519093-jdx7g          1/1       Running   0          2m
 all-in-one-server-1015810482-rgf8f         1/1       Running   0          1m
 all-in-one-server-green-3537570873-7npmx   1/1       Running   0          22s
-tbncollect-3235735371-f594t                1/1       Running   0          3m
+rotor-3235735371-f594t                     1/1       Running   0          3m
 ```
 
 {% include guides/your_environment.md %}

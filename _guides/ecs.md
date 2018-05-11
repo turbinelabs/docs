@@ -27,15 +27,15 @@ time_to_complete: 10 minutes
 
 ## Setting up service discovery
 
-Install tbncollect with the following task definition filling in the bracketed
+Install Rotor with the following task definition filling in the bracketed
 variables, including the `signed_token` obtained with `tbnctl`:
 
 ```console
 $ aws ecs \
   register-task-definition \
-  --family tbncollect \
+  --family rotor \
   --container-definitions '
-{% include_relative examples/ecs/tbncollect_spec.json %}'
+{% include_relative examples/ecs/rotor_spec.json %}'
 ```
 
 With your task definition created, you can proceed to run Create Service from
@@ -45,8 +45,8 @@ the ECS control panel, or through the CLI:
 $ aws ecs \
   create-service \
   --cluster default \
-  --service-name tbncollect \
-  --task-definition tbncollect:1 \
+  --service-name rotor \
+  --task-definition rotor:1 \
   --desired-count 1
 ```
 
@@ -54,9 +54,9 @@ $ aws ecs \
 
 ### Configure your tasks and containers
 
-In order for tbncollect to see your all-in-one tasks, you'll need to add a
+In order for Rotor to see your all-in-one tasks, you'll need to add a
 Cluster tag, which is attached to a container definition within a task
-definition. Clusters are the grouping that tbncollect uses for services, and in
+definition. Clusters are the grouping that Rotor uses for services, and in
 the case of ECS, are comprised of one or more tasks. A task can be one, or many
 containers, but as long as the container includes the same Cluster tag as a
 Docker label, the containers will be grouped together.

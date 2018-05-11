@@ -1,0 +1,45 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rotor
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: rotor
+    spec:
+      containers:
+      - image: turbinelabs/rotor:0.15.1
+        imagePullPolicy: Always
+        name: rotor
+        env:
+        - name: ROTOR_CMD
+          value: kubernetes
+        - name: ROTOR_API_ZONE_NAME
+          value: testbed
+        - name: ROTOR_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: tbnsecret
+              key: apikey
+        - name: ROTOR_KUBERNETES_NAMESPACE
+          value: customkube
+        - name: ROTOR_KUBERNETES_CLUSTER_LABEL
+          value: custom_cluster
+        - name: ROTOR_KUBERNETES_SELECTOR
+          value: custom_tbn_pods
+        - name: ROTOR_KUBERNETES_PORT_NAME
+          value: space_port
+        # - name: ROTOR_KUBERNETES_CA_CERT
+        #  value: path_to_your_cert
+        # - name: ROTOR_KUBERNETES_CLIENT_CERT
+        #  value: path_to_your_client_cert
+        # - name: ROTOR_KUBERNETES_CLIENT_KEY
+        #  value: path_to_your_cert_key_file
+        # - name: ROTOR_KUBERNETES_HOST
+        #  value: custom.example.com
+        # - name: ROTOR_KUBERNETES_TIMEOUT
+        #  value: 1m2s
+        # - name: ROTOR_KUBERNETES_CONSOLE_LEVEL
+        #  value: debug

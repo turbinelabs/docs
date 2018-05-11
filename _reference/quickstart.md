@@ -32,7 +32,7 @@ account. [Click here to get started.](https://turbinelabs.io/contact/)
 
 ## What's in the All-In-One image?
 
-### tbnproxy and tbncollect
+### tbnproxy and Rotor
 
 These two applications will run in a real-world deployment, connected to Turbine
 Labs' API.
@@ -40,7 +40,7 @@ Labs' API.
 - **tbnproxy**: The Envoy-based Turbine Labs reverse proxy, and an admin agent
 that that maintains proxy configuration and sends metrics to the Turbine
 Labs Service. The metrics are then segmented and exposed in the management UI.
-- **tbncollect**: A service discovery agent that observes the service instances,
+- **Rotor**: A service discovery agent that observes the service instances,
 updating the Turbine Labs Service as services or applications come and go. In
 this demo, the collector is watching for files instead of API instances.
 
@@ -59,7 +59,7 @@ This app is used to demonstrate the use of Houston through a simple
 visualization of routing and responses, but is disposable after experimenting
 with this demo.
 
-## Installing tbncollect and tbnproxy
+## Installing Rotor and tbnproxy
 
 The three environment variables you'll need to set in order to run the demo are:
 
@@ -68,7 +68,7 @@ The three environment variables you'll need to set in order to run the demo are:
 - `TBNPROXY_PROXY_NAME` - the name of the proxy, usually the zone name with a
   "-proxy" suffix
 
-To run the Docker container with tbnproxy, tbncollect, and the all-in-one server
+To run the Docker container with tbnproxy, Rotor, and the all-in-one server
 and client, use the following command:
 
 ```console
@@ -85,7 +85,7 @@ This command will:
 have it.
 - Initialize your test zone if it doesn't already exist.
 - Launch tbnproxy.
-- Launch tbncollect.
+- Launch Rotor.
 - Launch the client and server instances.
 
 _Note:_ In some cases the local Docker time may have drifted significantly  from

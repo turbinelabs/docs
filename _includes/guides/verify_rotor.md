@@ -1,4 +1,4 @@
-Now verify that tbncollect has discovered your new pods and added them to the
+Now verify that Rotor has discovered your new pods and added them to the
 appropriate clusters by running:
 
 ```console

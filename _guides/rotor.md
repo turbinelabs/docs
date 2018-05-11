@@ -1,6 +1,6 @@
 ---
 layout: page
-title: tbncollect Guide
+title: Rotor Guide
 ---
 
 [//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )
@@ -15,7 +15,7 @@ title: tbncollect Guide
 [//]: # ( implied. See the License for the specific language governing        )
 [//]: # ( permissions and limitations under the License.                      )
 
-[//]: # (Guide to tbncollect)
+[//]: # (Guide to Rotor)
 
 ## What is service discovery?
 
@@ -24,9 +24,9 @@ services, containers, etc. that exist on a network. In our case, service
 discovery is how Houston, by Turbine Labs, is able to see and take note of your
 services and instances, regardless of their provisioner.
 
-## What does tbncollect do?
+## What does Rotor do?
 
-tbncollect is a process that runs in your environment, customized to your
+Rotor is a process that runs in your environment, customized to your
 infrastructure. It collects every running instance of a service that is
 correctly labeled using whatever labeling scheme is appropriate (e.g.
 Kubernetes and DC/OS use app labels, while EC2 uses instance tags). It can also read
@@ -37,18 +37,18 @@ Services and instances are stored in the Turbine Labs API, mirroring the state
 of your environment, which is the source of truth. You can view them from
 Houston, but they are read-only.
 
-## tbncollect flags and environment variables
+## Rotor flags and environment variables
 
-Each supported platform for tbncollect can be customized with flags or
+Each supported platform for Rotor can be customized with flags or
 environment variables. The list of available platforms can be found with
-`tbncollect -h`, and individual platform flags can be found with
-`tbncollect <platform> -h`. Flags can be passed on the command line, or can be
+`rotor -h`, and individual platform flags can be found with
+`rotor <platform> -h`. Flags can be passed on the command line, or can be
 set via environment variables; for example `--cluster-label` for the Kubernetes
-platform can be set with `TBNCOLLECT_KUBERNETES_CLUSTER_LABEL`. Note the
+platform can be set with `ROTOR_KUBERNETES_CLUSTER_LABEL`. Note the
 pattern of stating the command in caps, then the platform, and finally the
 flag, also in caps, with all non-alphanumeric chars converted to underscores. So
 for Marathon, the ENV variables would be set with
-`TBNCOLLECT_MARATHON_<FLAG_NAME>`.
+`ROTOR_MARATHON_<FLAG_NAME>`.
 
 ### Deletion and creation flags
 
@@ -57,12 +57,12 @@ the diff from the previous dataset found in the API and the currently collected
 services and instances.
 
 - `--diff.ignore-create` **not commonly used**
-The default flag is `false`, but if the value is set to `true`, tbncollect will
+The default flag is `false`, but if the value is set to `true`, Rotor will
 not create new services present in the collected dataset but missing from the
 API.
 
 - `--diff.include-delete` **use with extreme caution—this is not recoverable**
-The default flag is `false`, but if it is set to `true`, tbncollect will delete
+The default flag is `false`, but if it is set to `true`, Rotor will delete
 services present in the API but missing from the collected dataset. It can be
 useful to turn this on incidentally to help in service cleanup, but it is
 potentially very dangerous to leave on all the time.

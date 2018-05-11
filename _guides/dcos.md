@@ -28,12 +28,12 @@ time_to_complete: 10 minutes
 
 ## Setting up service discovery
 
-The tbncollect binary scans your DC/OS cluster for pods and groups them into
+The Rotor binary scans your DC/OS cluster for pods and groups them into
 clusters in the Turbine Labs API.
 
 ### Getting your DC/OS Access Token and URL
 
-Before deploying tbncollect to your DC/OS cluster, you'll need an access token
+Before deploying Rotor to your DC/OS cluster, you'll need an access token
 to allow it to talk to the DC/OS API. The easiest way to do this is with the
 `dcos` command. First make sure you're authenticated:
 
@@ -61,20 +61,20 @@ You'll also need your DC/OS cluster URL, which can be obtained with:
 $ dcos config show core.dcos_url
 ```
 
-### Deploying tbncollect
+### Deploying Rotor
 
-To deploy tbncollect to your DC/OS cluster, create a file called
-`tbncollect.json`, using the template below, filling in the `signed_token`
+To deploy Rotor to your DC/OS cluster, create a file called
+`rotor.json`, using the template below, filling in the `signed_token`
 obtained with `tbnctl`, Zone name, and DC/OS access token and URL:
 
 ```json
-{% include_relative examples/dcos/tbncollect_spec.json %}
+{% include_relative examples/dcos/rotor_spec.json %}
 ```
 
 Then create an app using `dcos`:
 
 ```console
-$ dcos marathon app add tbncollect.json
+$ dcos marathon app add rotor.json
 ```
 
 You can watch launch progress from the DC/OS UI, or with the `dcos` command.
@@ -86,7 +86,7 @@ $ dcos marathon app list
 
 ```shell
 ID                        MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
-/tbn/tbncollect           128   1     1/1    ---       ---      False      DOCKER   None
+/tbn/rotor                128   1     1/1    ---       ---      False      DOCKER   None
 ```
 
 ## The all-in-one demo
@@ -115,10 +115,10 @@ $ dcos marathon app list
 ID                            MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /tbn/all-in-one/client         64  0.1    1/1    ---       ---      False      DOCKER   None
 /tbn/all-in-one/server/green   64  0.1    1/1    ---       ---      False      DOCKER   None
-/tbn/tbncollect               128   1     1/1    ---       ---      False      DOCKER   None
+/tbn/rotor                    128   1     1/1    ---       ---      False      DOCKER   None
 ```
 
-Now verify that tbncollect has discovered your new pods and added them to the
+Now verify that Rotor has discovered your new pods and added them to the
 appropriate clusters by running:
 
 ```console
@@ -133,8 +133,8 @@ all-in-one-client`. It may take up to 30 seconds for the new clusters to appear.
 
 ## Deploying tbnproxy
 
-Now we're ready to deploy tbnproxy to DC/OS. To deploy tbncollect to your DC/OS
-cluster, create a file called `tbncollect.json`, using the template below,
+Now we're ready to deploy tbnproxy to DC/OS. To deploy Rotor to your DC/OS
+cluster, create a file called `rotor.json`, using the template below,
 filling in the `signed_token` obtained with `tbnctl`, Zone name, and Proxy name:
 
 ```json
@@ -162,7 +162,7 @@ $ dcos marathon app list
 ID                            MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 /tbn/all-in-one/client         64  0.1    1/1    ---       ---      False      DOCKER   None
 /tbn/all-in-one/server/blue    64  0.1    1/1    ---       ---      False      DOCKER   None
-/tbn/tbncollect               128   1     1/1    ---       ---      False      DOCKER   None
+/tbn/rotor                    128   1     1/1    ---       ---      False      DOCKER   None
 /tbn/tbnproxy                 128  0.1    1/1    0/1      scale     False      DOCKER   None
 ```
 
@@ -203,7 +203,7 @@ ID                            MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CON
 /tbn/all-in-one/client         64  0.1    1/1    ---       ---      False      DOCKER   None
 /tbn/all-in-one/server/blue    64  0.1    1/1    ---       ---      False      DOCKER   None
 /tbn/all-in-one/server/green   64  0.1    1/1    ---       ---      False      DOCKER   None
-/tbn/tbncollect               128   1     1/1    ---       ---      False      DOCKER   None
+/tbn/rotor                    128   1     1/1    ---       ---      False      DOCKER   None
 /tbn/tbnproxy                 128  0.1    1/1    0/1      scale     False      DOCKER   None
 ```
 

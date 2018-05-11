@@ -60,7 +60,7 @@ authenticate with the Turbine Labs API.
 
 In order to use an Access Token it may be passed in any place that uses an
 "API key." Most often this is associated with the `-api.key` flag on a
-command or in the `TBNCTL_API_KEY`, `TBNCOLLECT_API_KEY`, and `TBNPROXY_API_KEY`
+command or in the `TBNCTL_API_KEY`, `ROTOR_API_KEY`, and `TBNPROXY_API_KEY`
 environment variables.
 
 #### access-tokens add &lt;comment&gt;

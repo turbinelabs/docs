@@ -34,21 +34,21 @@ installation. We'll also assume a working docker installation. "
 
 ## Setting up service discovery
 
-First, install and run tbncollect on an instance of server of your choice,
+First, install and run Rotor on an instance of server of your choice,
 with your environment variables defined inside of the Docker command, using
 the `signed_token` you obtained with `tbnctl`:
 
 ```console
 $ docker run -d \
-  -e "TBNCOLLECT_API_KEY=<your signed_token>" \
-  -e "TBNCOLLECT_API_ZONE_NAME=<your zone name>" \
-  -e "TBNCOLLECT_CMD=consul" \
-  -e "TBNCOLLECT_CONSUL_DC=dc1" \
-  -e "TBNCOLLECT_CONSUL_HOSTPORT=<your ip address>:8500" \
-  turbinelabs/tbncollect:0.15.1
+  -e "ROTOR_API_KEY=<your signed_token>" \
+  -e "ROTOR_API_ZONE_NAME=<your zone name>" \
+  -e "ROTOR_CMD=consul" \
+  -e "ROTOR_CONSUL_DC=dc1" \
+  -e "ROTOR_CONSUL_HOSTPORT=<your ip address>:8500" \
+  turbinelabs/rotor:0.15.1
 ```
 
-Use `tbncollect help consul` to determine which environmental variables you
+Use `rotor help consul` to determine which environmental variables you
 can use and modify.
 
 ## The all-in-one demo
@@ -94,10 +94,10 @@ $ docker ps
 CONTAINER ID        IMAGE                                 COMMAND                  CREATED             STATUS              PORTS                    NAMES
 71988c96464a        turbinelabs/all-in-one-server:0.15.1   "/bin/sh -c 'node ..."   57 seconds ago      Up 55 seconds       0.0.0.0:8081->8080/tcp   eloquent_franklin
 bd949c322beb        turbinelabs/all-in-one-client:0.15.1   "/bin/sh -c 'envte..."   3 minutes ago       Up 3 minutes        0.0.0.0:8080->8080/tcp   upbeat_snyder
-8d759aff4c90        turbinelabs/tbncollect:0.15.1          "/sbin/my_init"          3 minutes ago       Up 3 minutes                                 musing_roentgen
+8d759aff4c90        turbinelabs/rotor:0.15.1               "/sbin/my_init"          3 minutes ago       Up 3 minutes                                 musing_roentgen
 ```
 
-{% include guides/verify_tbncollect.md %}
+{% include guides/verify_rotor.md %}
 
 {% include guides/adding_a_domain.md %}
 
@@ -162,7 +162,7 @@ d544d8bcecdb        turbinelabs/all-in-one-server:0.15.1   "/bin/sh -c 'node ...
 c90dea77b4fb        turbinelabs/tbnproxy:0.15.1            "/sbin/my_init"          6 minutes ago       Up 6 minutes        0.0.0.0:80->80/tcp, 9999/tcp   serene_hodgkin
 71988c96464a        turbinelabs/all-in-one-server:0.15.1   "/bin/sh -c 'node ..."   13 minutes ago      Up 13 minutes       0.0.0.0:8081->8080/tcp         eloquent_franklin
 bd949c322beb        turbinelabs/all-in-one-client:0.15.1   "/bin/sh -c 'envte..."   15 minutes ago      Up 15 minutes       0.0.0.0:8080->8080/tcp         upbeat_snyder
-8d759aff4c90        turbinelabs/tbncollect:0.15.1          "/sbin/my_init"          15 minutes ago      Up 15 minutes                                      musing_roentgen
+8d759aff4c90        turbinelabs/rotor:0.15.1               "/sbin/my_init"          15 minutes ago      Up 15 minutes                                      musing_roentgen
 ```
 
 {% include guides/your_environment.md %}

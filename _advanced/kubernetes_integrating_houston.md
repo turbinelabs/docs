@@ -27,7 +27,7 @@ cluster in order to collect, route, and move faster with your code.
 
 This guide assumes you’ve looked over our [Kubernetes Guide](../kubernetes.html) for Houston, and
 have a Kubernetes environment configured. You may also find our
-[Customizing tbncollect](./kubernetes_customizing_tbncollect.html) guide useful as you configure your environment.
+[Customizing Rotor](./kubernetes_customizing_rotor.html) guide useful as you configure your environment.
 
 ## CI/CD to Houston
 
@@ -70,14 +70,14 @@ system performance, there's no particular advantage.
 ## Labels <a name="labels"></a>
 
 In order to determine a pod's association with a service, you can use the
-env var: `TBNCOLLECT_KUBERNETES_CLUSTER_LABEL=<foo>` in your yaml configuration
+env var: `ROTOR_KUBERNETES_CLUSTER_LABEL=<foo>` in your yaml configuration
 at `spec.template.labels` (without an override the default value is `tbn_cluster`). The
 collector will collect any cluster data with that label, and ignore the rest of
 your un-labeled, or differently-labeled clusters.
 
 There are good reasons to use a different cluster label than a currently in-use
-label in your Kubernetes environment, as you may not want tbncollect to collect
-every pod. See [this guide](./kubernetes_customizing_tbncollect.md) for
+label in your Kubernetes environment, as you may not want Rotor to collect
+every pod. See [this guide](./kubernetes_customizing_rotor.md) for
 more information on changing this label, as well as other collection and query
 changes that apply to using Houston with Kubernetes.
 
@@ -100,7 +100,7 @@ Here is an example file from the [Kubernetes guide](../kubernetes.html) to illus
 ### Port labels
 
 A single port can be collected per pod, and that port's name must be the value
-of the `TBNCOLLECT_KUBERNETES_PORT_NAME` environment variable, which by default
+of the `ROTOR_KUBERNETES_PORT_NAME` environment variable, which by default
 is `http`. All other ports are ignored. Located in `spec.containers.ports` of
 your yaml config file.
 

@@ -26,9 +26,9 @@ application.
 
 ## In your environment
 
-### tbncollect – Service discovery made easy
+### Rotor – Service discovery made easy
 
-tbncollect is an agent that scans your environment for running service clusters
+Rotor is an agent that scans your environment for running service clusters
 and instance labels. It has integrations with Kubernetes, DC/OS, Consul, ECS,
 and EC2. It can also poll a YAML or JSON file, for static or custom
 integrations. Changes to your environment are mirrored to the Turbine Labs API.

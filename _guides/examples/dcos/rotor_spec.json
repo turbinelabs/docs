@@ -1,0 +1,21 @@
+{
+  "id": "/tbn/rotor",
+  "cpus": 1,
+  "mem": 128,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "turbinelabs/rotor:0.15.1",
+      "forcePullImage": true
+    }
+  },
+  "env": {
+    "ROTOR_API_KEY": "<your signed_token>",
+    "ROTOR_API_ZONE_NAME": "<your TBN zone name>",
+    "ROTOR_CMD": "marathon",
+    "ROTOR_MARATHON_DCOS_ACS_TOKEN": "<your dc/os access token>",
+    "ROTOR_MARATHON_DCOS_URL": "<your dc/os admin URL>",
+    "ROTOR_MARATHON_DCOS_INSECURE": "<true if admin URL is not HTTPS>"
+  },
+  "healthChecks": []
+}

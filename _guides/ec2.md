@@ -45,20 +45,20 @@ You will need:
 
 ## Setting up service discovery
 
-SSH into your EC2 instance, and run tbncollect, with your environment variables
+SSH into your EC2 instance, and run Rotor, with your environment variables
 defined inside of the docker command, including the `signed_token` you obtained
 with `tbnctl` as the API key:
 
 ```console
 $ docker run -d \
-  -e "TBNCOLLECT_API_KEY=<your signed_token>"
-  -e "TBNCOLLECT_API_ZONE_NAME=<your zone name>" \
-  -e "TBNCOLLECT_AWS_AWS_ACCESS_KEY_ID=<your aws access key>" \
-  -e "TBNCOLLECT_AWS_AWS_REGION=<your aws region>" \
-  -e "TBNCOLLECT_AWS_AWS_SECRET_ACCESS_KEY=<your secret access key>" \
-  -e "TBNCOLLECT_AWS_VPC_ID=<your vpc id>" \
-  -e "TBNCOLLECT_CMD=aws" \
-  turbinelabs/tbncollect:0.15.1
+  -e "ROTOR_API_KEY=<your signed_token>"
+  -e "ROTOR_API_ZONE_NAME=<your zone name>" \
+  -e "ROTOR_AWS_AWS_ACCESS_KEY_ID=<your aws access key>" \
+  -e "ROTOR_AWS_AWS_REGION=<your aws region>" \
+  -e "ROTOR_AWS_AWS_SECRET_ACCESS_KEY=<your secret access key>" \
+  -e "ROTOR_AWS_VPC_ID=<your vpc id>" \
+  -e "ROTOR_CMD=aws" \
+  turbinelabs/rotor:0.15.1
 ```
 
 ## The all-in-one demo
@@ -132,9 +132,9 @@ $ docker run -d \
 
 ### Mapping an ELB to expose tbnproxy
 
-With your instance running both tbncollect and tbnproxy, create an Elastic Load
+With your instance running both Rotor and tbnproxy, create an Elastic Load
 Balancer through the AWS management console to send traffic through to your
-tbncollect and tbnproxy node on the appropriate ports—in this example, TCP
+Rotor and tbnproxy node on the appropriate ports—in this example, TCP
 port 80. Next, apply the security group: ELBGroup.
 
 {% include guides/configure_routes.md %}

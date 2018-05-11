@@ -1,24 +1,24 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: tbncollect
+  name: rotor
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        run: tbncollect
+        run: rotor
     spec:
       containers:
-      - image: turbinelabs/tbncollect:0.15.1
+      - image: turbinelabs/rotor:0.15.1
         imagePullPolicy: Always
-        name: tbncollect
+        name: rotor
         env:
-        - name: TBNCOLLECT_CMD
+        - name: ROTOR_CMD
           value: kubernetes
-        - name: TBNCOLLECT_API_ZONE_NAME
+        - name: ROTOR_API_ZONE_NAME
           value: testbed
-        - name: TBNCOLLECT_API_KEY
+        - name: ROTOR_API_KEY
           valueFrom:
             secretKeyRef:
               name: tbnsecret

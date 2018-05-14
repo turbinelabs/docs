@@ -15,19 +15,17 @@ title: SSL Termination
 [//]: # ( implied. See the License for the specific language governing        )
 [//]: # ( permissions and limitations under the License.                      )
 
-[//]: # (Setting up SSL termination on at tbnproxy)
+# Terminating SSL connections with Envoy
 
-# Terminating SSL connections with tbnproxy
-
-Two things are required to set `tbnproxy` up to terminate SSL connections. First
-you need to arrange for `tbnproxy` to have access to files containing the SSL
+Two things are required to set Envoy up to terminate SSL connections. First
+you need to arrange for Envoy to have access to files containing the SSL
 certificate and private key. Next you configure the Houston `Domain` objects to
 reference these files which implicitly enables SSL on those domains. Optionally
 you may set up a URL redirect to have any HTTP trafic redirected to your HTTPS
 endpoint.
 
 Note: To do this without interrupting existing user traffic, this guide sets up
-`tbnproxy` to serve HTTPS traffic without changing any IPs or DNS entries. In
+Envoy to serve HTTPS traffic without changing any IPs or DNS entries. In
 staging, this may not matter. In production, we recommend you only remap IPs or
 change DNS entries after fully configuring and testing the proxy.
 
@@ -45,14 +43,14 @@ your preferred fleet management tool.
 
 In the end, though, you need to have two files available:
 
-1. A certificate chain that will be served to your visitors, this should include
+1. A certificate chain that will be served to your visitors. This should include
    any intermediates necessary for a client to validate your certifiacte.
 2. An unencrypted private key in PEM format that corresponds to your
    certificate.
 
 ## Configuring Your Domain
 
-Your `tbnproxy` instance needs to have the certificate it serves and the
+Your Envoy instance needs to have the certificate it serves and the
 unencrypted private key available at some path, let's call these
 `/path/to/cert.crt` and `/path/to/key.pem` respectively
 

@@ -38,7 +38,7 @@ exclude:
   - README-jekyll.md
   - docker
 collections:
-  reference:
+  introduction:
     output: true
     print_order: 1
   guides:

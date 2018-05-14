@@ -1,0 +1,21 @@
+<div class="tabbed-block rotor-tabs">
+<ul class="tabs">
+  <li><span data-dest=".tab1">Kubernetes</span></li>
+  <li><span data-dest=".tab2">Consul</span></li>
+  <li><span data-dest=".tab3">EC2</span></li>
+</ul>
+<div class="tab-content">
+  <div class="hack" >
+    {% include_relative examples/rotor-hack.md %}
+  </div>
+  <div class="tab1">
+    {% include_relative examples/rotor-kubernetes.md %}
+  </div>
+  <div class="tab2">
+    {% include_relative examples/rotor-consul.md %}
+  </div>
+  <div class="tab3">
+    {% include_relative examples/rotor-ec2.md %}
+  </div>
+</div>
+</div>

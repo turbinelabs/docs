@@ -1,54 +1,70 @@
-.tabs {
-  overflow: hidden;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.tabbed-block {
+
+  .tabs {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      float: left;
+      margin: 0 .5em 0 0;
+    }
+    span {
+      position: relative;
+      background: $grey-color-light;
+      padding: 0.7em 3em;
+      float: left;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    span:hover,
+    span:hover::after,
+    span:focus,
+    span:focus::after {
+      background: $grey-color-light;
+    }
+
+    span:focus {
+      outline: 0;
+    }
+
+    span::after {
+      content: '';
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      right: -.5em;
+      bottom: 0;
+      width: 1em;
+      background: $grey-color-light;
+    }
+
+    .current span {
+      background: $tbn-orange;
+      z-index: 3;
+      color: #fff;
+    }
+
+    .current span::after {
+      background: $tbn-orange;
+      z-index: 3;
+    }
+  }
+
+  .hack {
+    display: none;
+  }
+
 }
-.tabs li {
-  float: left;
-  margin: 0 .5em 0 0;
+
+.tabbed-block.label-tabs .tab-content {
+    height: 400px;
 }
-.tabs a {
-  position: relative;
-  background: $grey-color-light;
-  padding: 0.7em 3em;
-  float: left;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: bold;
-}
-.tabs a:hover,
-.tabs a:hover::after,
-.tabs a:focus,
-.tabs a:focus::after {
-  background: $grey-color-light;
-}
-.tabs a:focus {
-  outline: 0;
-}
-.tabs a::after {
-  content: '';
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  right: -.5em;
-  bottom: 0;
-  width: 1em;
-  background: $grey-color-light;
-}
-.tabs #current a {
-  background: $tbn-orange;
-  z-index: 3;
-  color: #fff;
-}
-.tabs #current a::after {
-  background: $tbn-orange;
-  z-index: 3;
-}
-.tab-content {
-  height: 180px;
-}
-.hack {
-  display: none;
+
+.tabbed-block.rotor-tabs .tab-content {
+  height: 200px;
 }

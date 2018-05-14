@@ -1,0 +1,11 @@
+{
+  "Datacenter": "dc1",
+  "Node": "envoy-simple",
+  "Address": "<your ip address>",
+  "Service": {
+    "ID": "envoy-simple",
+    "Service": "envoy-simple",
+    "Tags": ["tbn-cluster"],
+    "Port": 80
+  }
+}

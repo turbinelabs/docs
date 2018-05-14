@@ -1,17 +1,19 @@
 $(document).ready(function() {
-    $(".tab-content").children("div").hide(); // Initially hide all content
-    $(".tabs li:first").attr("id","current"); // Activate first tab
-    $(".tab-content div:first").fadeIn(); // Show first tab content
-    $('.tabs li a').click(function(e) {
-        e.preventDefault();
-        if ($(this).attr("id") == "current"){ //detection for current tab
-         return
-        }
-        else{
-        $(".tab-content").children("div").hide(); //Hide all content
-        $(".tabs li").attr("id",""); //Reset id's
-        $(this).parent().attr("id","current"); // Activate this
-        $( $(this).attr('href')).fadeIn(); // Show content for current tab
-        }
+  $(".tabbed-block").each(function() {
+    var me = $(this);
+    me.find(".tab-content").children("div").hide(); // Initially hide all content
+    me.find(".tabs li:first").addClass("current"); // Activate second tab
+    me.find(".tab-content div:nth-child(2)").fadeIn(); // Show second tab content, b/c jekyll hack
+    me.find('.tabs li span').click(function(e) {
+      e.preventDefault();
+      if ($(this).hasClass("current")) { //detection for current tab
+        return
+      } else {
+        me.find(".tab-content").children("div").hide(); //Hide all content
+        me.find(".tabs li").removeClass("current"); //Reset classes's
+        me.find(this).parent().addClass("current"); // Activate this
+        me.find( $(this).attr('data-dest') ).fadeIn(); // Show content for current tab
+      }
     });
+  });
 });

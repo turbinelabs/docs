@@ -1,0 +1,17 @@
+# Add this container to your Pod spec
+containers:
+- image: turbinelabs/rotor:latest
+  imagePullPolicy: Always
+  name: rotor
+  ports:
+    - containerPort: 50000 # xDS server is exposed here
+  env:
+  - name: ROTOR_CMD
+    value: xds-only
+  - name: ROTOR_API_ZONE_NAME
+    value: testbed
+  - name: ROTOR_API_KEY
+    valueFrom:
+      secretKeyRef:
+        name: tbnsecret
+        key: apikey

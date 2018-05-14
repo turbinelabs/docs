@@ -3,11 +3,17 @@ layout: page
 title: Houston, by Turbine Labs
 ---
 
-### _Ship More, Worry Less_ ###
+### _Traffic management for all, built with Envoy_
 
-Take 10 minutes to explore the release capabilities of Houston, by
-Turbine Labs on your laptop with
-our [quick start]({{ "/reference/#quickstart" | relative_url }}),
-learn more about Houston's
-product [architecture]({{ "/reference/#architecture" | relative_url}}), or
-learn how to deploy Houston to your environment with our guides.
+More than a control plane,
+[Houston](introduction/Houston.html)
+supercharges your Envoy deployment with powerful observability, an intuitive
+UI, and simple configuration. Envoy and Houston are designed to work in complex
+systems with hundreds of services and tens of thousands of nodes.
+
+Houston brings that power to every developer and team in your organization.
+
+Learn how to integrate Houston and Envoy with
+[Kubernetes](advanced/kubernetes.html),
+[EC2](advanced/ec2.html), or
+[Consul](advanced/consul.html).

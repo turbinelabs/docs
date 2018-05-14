@@ -1,0 +1,20 @@
+<div class="tabbed-block label-tabs">
+<ul class="tabs">
+  <li><span data-dest=".tab1">Kubernetes</span></li>
+  <li><span data-dest=".tab2">Consul</span></li>
+  <li><span data-dest=".tab3">EC2</span></li>
+</ul>
+<div class="tab-content">
+  <div class="hack" >
+    {% include_relative examples/labels-hack.md %}
+  </div>
+  <div class="tab1">
+    {% include_relative examples/labels-kubernetes.md %}
+  </div>
+  <div class="tab2">
+    {% include_relative examples/labels-consul.md %}
+  </div>
+  <div class="tab3">
+    {% include_relative examples/labels-ec2.md %}
+</div>
+</div>

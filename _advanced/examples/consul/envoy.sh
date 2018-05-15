@@ -5,4 +5,4 @@ docker run  \
   -e 'ENVOY_NODE_ZONE=testbed' \
   -p 9999:9999 \
   -p 80:80 \
-  turbinelabs/envoy-simple:0.15.1
+  turbinelabs/envoy-simple:0.16.0-rc1

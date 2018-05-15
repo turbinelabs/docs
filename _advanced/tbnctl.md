@@ -1,6 +1,7 @@
 ---
 layout: page
 title: tbnctl Guide
+redirect_from: /guides/tbnctl.html
 ---
 
 [//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )

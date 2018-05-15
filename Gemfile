@@ -24,3 +24,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :jekyll_plugins do
   gem "liquefy", "~> 0.1.2"
 end
+
+# Adds redirects to jekyll
+gem 'jekyll-redirect-from'

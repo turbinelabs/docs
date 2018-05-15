@@ -2,6 +2,7 @@
 layout: page
 title: Install in Consul
 time_to_complete: 15  minutes
+redirect_from: /guides/consul.html
 ---
 
 [//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )
@@ -81,8 +82,7 @@ Next, expose this Envoy deployment to Consul with this command:
 
 ```console
 $ curl <your ip address>:8500/v1/catalog/register -d '
-{% include_relative examples/consul/registration.json %}
-'
+{% include_relative examples/consul/registration.json %}'
 ```
 
 To test if this worked, curl the IP of your Envoy service. Envoy requires the

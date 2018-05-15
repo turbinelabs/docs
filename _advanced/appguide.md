@@ -2,6 +2,7 @@
 layout: page
 title: Application Usage Guide
 print_order: 6
+redirect_from: /advanced/advancedrouting.html
 ---
 
 [//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )

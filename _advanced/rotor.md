@@ -2,6 +2,7 @@
 layout: page
 title: Rotor Guide
 time_to_complete: 5 minutes
+redirect_from: /guides/tbncollect.html
 ---
 
 [//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )

@@ -47,3 +47,6 @@ collections:
   advanced:
     output: true
     print_order: 3
+
+gems:
+  - jekyll-redirect-from

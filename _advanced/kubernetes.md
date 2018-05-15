@@ -2,6 +2,10 @@
 layout: page
 title: Install in Kubernetes
 time_to_complete: 15 minutes
+redirect_from:
+  - /advanced/kubernetes_customizing_tbncollect.html
+  - /advanced/kubernetes_integrating_houston.html
+  - /guides/kubernetes.html
 ---
 
 [//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )

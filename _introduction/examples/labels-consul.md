@@ -2,6 +2,7 @@
 Consul nodes are grouped based on the `tbn-cluster` tag.
 
 ```json
+{
   "Datacenter": "dc1",
   "Node": "node-name",
   "Service": {
@@ -9,4 +10,5 @@ Consul nodes are grouped based on the `tbn-cluster` tag.
     "Tags": ["tbn-cluster"],
     "Port": 8080
   }
+}
 ```

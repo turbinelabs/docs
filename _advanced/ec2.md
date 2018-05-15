@@ -2,6 +2,7 @@
 layout: page
 title: Install in EC2
 time_to_complete: 15  minutes
+redirect_from: /guides/ec2.html
 ---
 
 [//]: # ( Copyright 2018 Turbine Labs, Inc.                                   )

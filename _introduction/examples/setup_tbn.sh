@@ -24,7 +24,7 @@ tbnctl login
 tbnctl init-zone testbed
 echo using zone testbed
 
-has_proxy=$(tbnctl list proxy | grep testbed)
+has_proxy=$(tbnctl list proxy | grep testbed || true)
 if [ -z "$has_proxy" ]
 then
     tbnctl create proxy testbed-proxy
@@ -34,12 +34,5 @@ else
 fi
 
 # Look for an access token
-has_access_token=$(tbnctl access-tokens list | grep "setup_tbnctl.sh key")
-if [ -z "$has_access_token" ]
-then
-    tbnctl access-tokens add "setup_tbnctl.sh key"
-    echo created new access token \"setup_tbnctl.sh key\":
-else
-    echo using existing access token \"setup_tbnctl.sh key\":
-fi
-tbnctl access-tokens list | grep -B 2 -A 3 "setup_tbnctl.sh key"
+tbnctl access-tokens add "setup_tbnctl.sh key"
+echo created new access token \"setup_tbnctl.sh key\":

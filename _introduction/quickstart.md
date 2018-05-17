@@ -99,7 +99,7 @@ guide. Any clusters you labeled previously will now appear in the list.
 
 To have Envoy serve traffic, there are two more steps:
 
-1. Set up routing rules [in the app](https://app.turbinelabs.com#starttourx);
+1. Set up routing rules [in the app](https://i.chmln.co/c/AAu62pMdK9eH1Thf);
    then
 2. Deploy Envoy to serve these routes. See our guides for
    - [Kubernetes](../advanced/kubernetes.html)

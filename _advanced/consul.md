@@ -78,17 +78,10 @@ CONTAINER ID        IMAGE                             COMMAND                  C
 6561ec86fc11        turbinelabs/envoy-simple:0.16.0-rc1   "/sbin/my_init -- /u…"   Less than a second ago   Up 4 seconds        0.0.0.0:80->80/tcp, 0.0.0.0:9999->9999/tcp, 443/tcp   gracious_shannon
 ```
 
-Next, expose this Envoy deployment to Consul with this command:
-
-```console
-$ curl <your ip address>:8500/v1/catalog/register -d '
-{% include_relative examples/consul/registration.json %}'
-```
-
-To test if this worked, curl the IP of your Envoy service. Envoy requires the
-Host header be present, so add a header for a service that exists in your
-cluster. This should match a domain and route you have [configured in
-Houston](https://app.turbinelabs.io).
+To test if this worked, curl the IP of your Envoy. Envoy requires the Host
+header be present, so add a header for a service that exists in your cluster.
+This should match a domain and route you have
+[configured in Houston](https://app.turbinelabs.io).
 
 ```console
 $ curl  -h 'Host: example.com' 10.3.241.247

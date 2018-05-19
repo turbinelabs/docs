@@ -75,7 +75,7 @@ $ docker ps
 
 ```shell
 CONTAINER ID        IMAGE                             COMMAND                  CREATED                  STATUS              PORTS                                                 NAMES
-6561ec86fc11        turbinelabs/envoy-simple:0.16.0-rc1   "/sbin/my_init -- /u…"   Less than a second ago   Up 4 seconds        0.0.0.0:80->80/tcp, 0.0.0.0:9999->9999/tcp, 443/tcp   gracious_shannon
+6561ec86fc11        turbinelabs/envoy-simple:0.16.0   "/sbin/my_init -- /u…"   Less than a second ago   Up 4 seconds        0.0.0.0:80->80/tcp, 0.0.0.0:9999->9999/tcp, 443/tcp   gracious_shannon
 ```
 
 To test if this worked, curl the IP of your Envoy. Envoy requires the Host
@@ -117,7 +117,7 @@ variables, as described below.
 You can see which flags are available:
 
 ```console
-$ docker run -e "ROTOR_CMD=consul" -e "ROTOR_HELP=true" turbinelabs/rotor:0.16.0-rc1
+$ docker run -e "ROTOR_CMD=consul" -e "ROTOR_HELP=true" turbinelabs/rotor:0.16.0
 ```
 
 Environment variables corresponding to flags are derived from those flags by

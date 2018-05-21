@@ -166,6 +166,13 @@ $ tbnctl list domain name=api.example.com
 ]
 ```
 
+### get
+
+This command retrieves an object from Turbine Labs API. The available objects
+are the same as for list: user, zone, proxy, domain, route, shared_rules,
+cluster keyed by their respective `<object-type>_key value`. For more detailed
+help, please type `tbnctl get -h`.
+
 ### create
 
 This creates a new resource from a file/flags, e.g. `cat zone.json | tbnctl
@@ -185,13 +192,13 @@ interactive editor. If so, simply make the new version available on STDIN
 through standard use of pipes. For more detailed help, please type
 `tbnctl edit -h`.
 
-
 ### delete
 
-This deletes a single resource, e.g. tbnctl delete zone testbed, and is
-equivalent to `DELETE <api>/v1.0/<object type>/<object id>`. For more detailed
-help, please type `tbnctl delete -h`.
-
+This deletes a single resource, e.g. `tbnctl delete zone testbed`, and is
+equivalent to `DELETE <api>/v1.0/<object type>/<object id>`. When deleting
+objects, it is possible to delete the object graph below the object being
+deleted, by specifying the `--deep` flag. For more information on options,
+please type `tbnctl delete -h`.
 
 ### init-zone
 
@@ -202,3 +209,19 @@ proxies serving one or more domains each.
 Port/domain pairs are specified with `proxy=domain:port,...`, while Routes are
 specified with `domain:port[/path]=cluster([:key=value]*),...`. For more
 detailed help, please type `tbnctl init-zone -h`.
+
+### export-zone
+
+This exports a Zone from the Turbine Labs API. Object keys are replaced with
+human-readable names, and referential integrity is maintained. The output of
+export-zone is suitable for input into import-zone. This can assist in
+transfering zone configs. For more detailed help, please type `tbnctl
+export-zone -h`.
+
+### import-zone
+This imports a Zone to the Turbine Labs API. Typically the input will be the
+output of a previous call to export-zone, with object keys replaced by names.
+Referential integrity, assuming it is present in the input, is maintained in
+the import. The Zone to be imported is assumed not to exist, and import-zone
+will fail if the Zone is already present. For more detailed help, please type
+`tbnctl import-zone -h`.

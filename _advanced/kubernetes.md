@@ -184,7 +184,7 @@ environment variables, as described below.
 You can see which flags are available:
 
 ```console
-$ docker run -e "ROTOR_CMD=kubernetes" -e "ROTOR_HELP=true" turbinelabs/rotor:0.16.0
+$ docker run turbinelabs/rotor:0.16.0 rotor kubernetes --help
 ```
 
 Environment variables corresponding to command-line flags are derived from those

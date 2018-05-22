@@ -117,7 +117,7 @@ variables, as described below.
 You can see which flags are available:
 
 ```console
-$ docker run -e "ROTOR_CMD=consul" -e "ROTOR_HELP=true" turbinelabs/rotor:0.16.0
+$ docker run turbinelabs/rotor:0.16.0 rotor consul --help
 ```
 
 Environment variables corresponding to flags are derived from those flags by

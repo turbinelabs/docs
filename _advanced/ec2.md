@@ -171,7 +171,7 @@ instances are collected by using environment variables, described below.
 You can see which flags are available:
 
 ```console
-$ docker run -e "ROTOR_CMD=aws" -e "ROTOR_HELP=true" turbinelabs/rotor:0.16.0
+$ docker run turbinelabs/rotor:0.16.0 rotor aws --help
 ```
 
 Environment variables corresponding to flags are derived from those flags by

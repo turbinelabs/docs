@@ -3,11 +3,19 @@
     <a href="/"><img src="/assets/logo-horiz-3c-reverse.svg" alt="(Turbine Labs Logo)" /></a>
 
     <nav class="sidebar-nav">
-        {% assign sorted_intros = site.introduction | sort: 'print_order' %}
-        {% include sidebar_section.html collection=sorted_intros %}
-        <p>
-        {% assign sorted_adv = site.advanced | sort_natural: 'print_order' %}
-        {% include sidebar_section.html collection=sorted_adv %}
+      {% assign sorted_intros = site.introduction | sort: 'print_order' %}
+      {% include sidebar_section.html collection=sorted_intros %}
+      <p></p>
+      {% assign sorted_adv = site.advanced | sort_natural: 'print_order' %}
+      {% include sidebar_section.html collection=sorted_adv %}
+
+      <p></p>
+      <h2>API Reference</h2>
+      <a class="sidebar-nav-item" href="/api/#introduction">Introduction</a>
+      <a class="sidebar-nav-item" href="/api/#authentication">Authentication</a>
+      <a class="sidebar-nav-item" href="/api/#tag-Zone">Operations</a>
+      <a class="sidebar-nav-item" href="/api/#definition-Error">Schema Definitions</a>
+
     </nav>
 
     <small>&copy; {{ site.time | date: '%Y' }} Turbine Labs, Inc.<br/>All rights reserved.</small>

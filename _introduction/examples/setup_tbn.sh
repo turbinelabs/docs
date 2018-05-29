@@ -23,11 +23,13 @@ tbnctl login
 # Set up some objects
 tbnctl init-zone testbed
 echo using zone testbed
+zone_key=$(tbnctl list zone | grep -B1 '"testbed"' | grep zone_key | cut -d '"' -f 4)
 
-has_proxy=$(tbnctl list proxy | grep testbed || true)
+has_proxy=$(tbnctl list proxy zone_key=$zone_key | grep testbed || true)
 if [ -z "$has_proxy" ]
 then
-    tbnctl create proxy testbed-proxy
+    proxy_json="{\"zone_key\": \"$zone_key\", \"name\": \"testbed-proxy\"}"
+    echo $proxy_json | tbnctl create proxy
     echo created proxy testbed-proxy
 else
     echo testbed-proxy proxy already exists

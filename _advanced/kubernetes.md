@@ -73,7 +73,9 @@ different zone name in the Quickstart, update that under `ROTOR_API_ZONE_NAME`.
 {% include_relative examples/kubernetes/rotor.yaml %}
 ```
 
-Create this deployment and expose it as a service with the following commands. The service created by the second YAML definition above provides a stable IP that Envoy will read its configuration from.
+Create this deployment and expose it as a service with the following commands. 
+The service created by the second YAML definition above provides a stable IP 
+that Envoy will read its configuration from.
 
 ```console
 $ kubectl create -f rotor.yaml
@@ -87,7 +89,7 @@ them based on their labels. You will have to add two pieces of information to
 each pod to have Rotor recognize it:
 
 1. A `tbn_cluster: <name>` label to name the service to which the Pod
-   belongs. The name can be [customized](#ROTOR_KUBERNETES_CLUSTER_LABEL)
+   belongs. The label can be [customized](#ROTOR_KUBERNETES_CLUSTER_LABEL)
 2. An exposed port named `http` or
    [a customized name.](#ROTOR_KUBERNETES_PORT_NAME)
 

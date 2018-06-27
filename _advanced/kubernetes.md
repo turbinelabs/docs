@@ -65,6 +65,8 @@ To create the objects, run:
 $ kubectl create -f rotor-rbac.yaml
 ```
 
+(If this doesn't work, see [common RBAC failures](#RBAC_Failures).)
+
 Next, create a Deployment spec for Rotor. Save the YAML below as `rotor.yaml`,
 or download it [here](/advanced/examples/kubernetes/rotor.yaml). If you chose a
 different zone name in the Quickstart, update that under `ROTOR_API_ZONE_NAME`.
@@ -73,8 +75,8 @@ different zone name in the Quickstart, update that under `ROTOR_API_ZONE_NAME`.
 {% include_relative examples/kubernetes/rotor.yaml %}
 ```
 
-Create this deployment and expose it as a service with the following commands. 
-The service created by the second YAML definition above provides a stable IP 
+Create this deployment and expose it as a service with the following commands.
+The service created by the second YAML definition above provides a stable IP
 that Envoy will read its configuration from.
 
 ```console
@@ -146,16 +148,53 @@ envoy-front-proxy      10.3.241.247   104.198.110.237   80/TCP    5m
 
 To test that all this worked, curl this IP. Please note that Envoy requires the
 Host header be present, so add a header for a configured domain. This should
-match a domain and route you have [configured in
-Houston](https://app.turbinelabs.io).
+match a domain and route you have
+[configured in Houston](https://app.turbinelabs.io).
 
 ```console
 $ curl  -H 'Host: example.com' http://10.3.241.247
 ```
 
+## Common Problems
+
+<a name="RBAC_Failures"></a>
+### RBAC Failures
+
+Sometimes RBAC will fail with an error that looks like this:
+
+```shell
+$ kubectl create -f https://docs.turbinelabs.io/advanced/examples/kubernetes/rotor-rbac.yaml
+serviceaccount "rotor" created
+clusterrolebinding "rotor" created
+Error from server (Forbidden): error when creating "https://docs.turbinelabs.io/
+advanced/examples/kubernetes/rotor-rbac.yaml": clusterroles.rbac.authorization.k8s.io
+"rotor" is forbidden: attempt to grant extra privileges: [PolicyRule{Resources:
+["pods"], APIGroups:[""], Verbs:["get"]} PolicyRule{Resources:["pods"], API
+Groups:[""], Verbs:["list"]} PolicyRule{Resources:["pods"], APIGroups:[""], Verbs
+:["“watch\""]}] user=&{you@youremail.com  [system:authenticated] map[]} ownerrules
+=[PolicyRule{Resources:["selfsubjectaccessreviews"], APIGroups:["authorization.k8s.io"]
+, Verbs:["create"]} PolicyRule{NonResourceURLs:["/api" "/api/*" "/apis" "/apis/*"
+"/healthz" "/swaggerapi" "/swaggerapi/*" "/version"], Verbs:["get"]}
+PolicyRule{NonResourceURLs:["/swagger-2.0.0.pb-v1"], Verbs:["get"]} PolicyRule{NonResourceURLs:
+["/swagger.json"], Verbs:["get"]}] ruleResolutionErrors=[]
+```
+
+This is a result of your user (`you@youremail.com` in the example above) not
+having the proper permissions to grant Rotor the permissions it is asking for.
+
+You can fix this by binding your user as a cluster-admin (make sure to put in
+your user ID):
+
+```console
+kubectl create clusterrolebinding your-user-cluster-admin-binding --clusterrole=cluster-admin --user=you@youremail.com
+```
+
+Learn more in the
+[Google Kubernetes Engine docs](https://cloud.google.com/kubernetes-engine/docs/how-to/role-based-access-control#prerequisites_for_using_role-based_access_control).
+
 ## Customizing
 
-## Scaling Envoy and Rotor
+### Scaling Envoy and Rotor
 
 Once you have Envoy deployed as a load balancer (or "front proxy") in your
 cluster, you can also deploy it as a sidecar in each Pod ("service mesh"

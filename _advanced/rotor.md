@@ -68,6 +68,28 @@ Houston. You can also run multiple Rotor processes to bridge, e.g. EC2 and
 Kubernetes, allowing you configure routes that incrementally migrate traffic
 from one to the other.
 
+## Configuring Leaderboard Logging
+
+Envoy has the ability to redirect or reject requests based on the configuration
+provided by Rotor. This means it's possible to see a disconnect between stats as
+reported by your service and those reported by Envoy.
+
+If you need access to the cause of those differences but do not need the
+functionality provided by a full ALS consumer Rotor can be configured to log a
+leaderboard recording the top non-2xx requests. This is done through global flags:
+
+ Flag                         | Argument / Default | Description 
+------------------------------|--------------------|------------
+`--xds.grpc-log-top`          | Integer, 0         | Controls how many unique response code and request path combinations are tracked. When the number of tracked combinations in the reporting period is exceeded, uncommon paths are evicted.
+`--xds.grpc-log-top-interval` | Duration, 5m       | Controls the interval at which top logs are generated.
+
+The generated logs are sent to `stdout` and requires that logging (`console.level`)
+is set at `info` level or higher. They are reported in the format:
+
+```bash
+[info] <timestamp> ALS: <number of requests>: <HTTP response code> <request path>
+```
+
 ## Formerly tbncollect
 
 Before being open-sourced, Rotor was named `tbncollect`. If you were previously

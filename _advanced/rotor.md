@@ -76,12 +76,13 @@ reported by your service and those reported by Envoy.
 
 If you need access to the cause of those differences but do not need the
 functionality provided by a full ALS consumer Rotor can be configured to log a
-leaderboard recording the top non-2xx requests. This is done through global flags:
+leaderboard recording the top non-2xx requests. This is done through environment
+variables or global flags:
 
- Flag                         | Argument / Default | Description 
-------------------------------|--------------------|------------
-`--xds.grpc-log-top`          | Integer, 0         | Controls how many unique response code and request path combinations are tracked. When the number of tracked combinations in the reporting period is exceeded, uncommon paths are evicted.
-`--xds.grpc-log-top-interval` | Duration, 5m       | Controls the interval at which top logs are generated.
+Env Var                           | Flag                          | Argument / Default | Description
+----------------------------------|-------------------------------|--------------------|------------
+`ROTOR_XDS_GRPC_LOG_TOP`          | `--xds.grpc-log-top`          | Integer, 0         | Controls how many unique response code and request path combinations are tracked. When the number of tracked combinations in the reporting period is exceeded, uncommon paths are evicted.
+`ROTOR_XDS_GRPC_LOG_TOP_INTERVAL` | `--xds.grpc-log-top-interval` | Duration, 5m       | Controls the interval at which top logs are generated.
 
 The generated logs are sent to `stdout` and requires that logging (`console.level`)
 is set at `info` level or higher. They are reported in the format:
@@ -89,6 +90,36 @@ is set at `info` level or higher. They are reported in the format:
 ```bash
 [info] <timestamp> ALS: <number of requests>: <HTTP response code> <request path>
 ```
+
+## Debugging Rotor
+
+There are a few ways to figure out what's going on with Rotor.
+
+### Debug Logging
+
+You can make Rotor's logging more verbose by adding `ROTOR_CONSOLE_LEVEL=debug`
+to the environment, or by setting the `--console.level` flag if running the
+binary by hand.
+
+### Config Dump
+
+You can dump the full configuration that Rotor serves by running
+`rotor-test-client` within the running Rotor docker container:
+
+```console
+docker exec <container id> rotor-test-client
+```
+
+If you've set `ROTOR_XDS_DEFAULT_CLUSTER` or `ROTOR_XDS_DEFAULT_ZONE`, you'll
+need to correspondingly set them as arguments:
+
+```console
+docker exec <container id> rotor-test-client --zone=<zone> --cluster=<cluster>
+```
+
+If you're running the binaries by hand, and you've passed the `--xds.addr` flag
+to rotor, you'll need to pass the same value in the `--addr` flag to
+`rotor-test-client`.
 
 ## Formerly tbncollect
 

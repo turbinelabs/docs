@@ -12,6 +12,9 @@
 # implied. See the License for the specific language governing
 # permissions and limitations under the License.
 
+# Configurable zone name
+zone=${1:-testbed}
+
 # Install tbnctl
 go get -u github.com/turbinelabs/tbnctl
 go install github.com/turbinelabs/tbnctl
@@ -21,18 +24,18 @@ echo Log in with your Houston password:
 tbnctl login
 
 # Set up some objects
-tbnctl init-zone testbed
-echo using zone testbed
-zone_key=$(tbnctl list zone | grep -B1 '"testbed"' | grep zone_key | cut -d '"' -f 4)
+tbnctl init-zone $zone
+echo using zone $zone
+zone_key=$(tbnctl list zone | grep -B1 '"'$zone'"' | grep zone_key | cut -d '"' -f 4)
 
-has_proxy=$(tbnctl list proxy zone_key=$zone_key | grep testbed || true)
+has_proxy=$(tbnctl list proxy zone_key=$zone_key | grep $zone || true)
 if [ -z "$has_proxy" ]
 then
-    proxy_json="{\"zone_key\": \"$zone_key\", \"name\": \"testbed-proxy\"}"
+    proxy_json="{\"zone_key\": \"$zone_key\", \"name\": \"$zone-proxy\"}"
     echo $proxy_json | tbnctl create proxy
-    echo created proxy testbed-proxy
+    echo created proxy $zone-proxy
 else
-    echo testbed-proxy proxy already exists
+    echo $zone-proxy proxy already exists
 fi
 
 # Look for an access token

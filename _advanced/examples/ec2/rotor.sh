@@ -7,4 +7,4 @@ docker run -d \
   -e 'ROTOR_AWS_VPC_ID=<your vpc id>' \
   -e 'ROTOR_CMD=aws' \
   -p 50000:50000 \
-  turbinelabs/rotor:0.18.1
+  turbinelabs/rotor:0.18.2

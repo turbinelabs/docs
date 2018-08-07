@@ -6,7 +6,7 @@ title: Houston, by Turbine Labs
 ### _Traffic management for all, built with Envoy_
 
 More than a control plane,
-[Houston](introduction/Houston.html)
+[Houston](introduction/houston.html)
 supercharges your Envoy deployment with powerful observability, an intuitive
 UI, and simple configuration. Envoy and Houston are designed to work in complex
 systems with hundreds of services and tens of thousands of nodes.

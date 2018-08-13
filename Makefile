@@ -49,8 +49,8 @@ copy-assets:
 build: install
 	$(JEKYLL) build
 
-serve: build
-	JEKYLL_ENV=production $(JEKYLL) serve
+serve: install
+	$(JEKYLL) serve
 
 test: build
 	# TODO(https://github.com/turbinelabs/tbn/issues/5166)

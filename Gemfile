@@ -27,3 +27,6 @@ end
 
 # Adds redirects to jekyll
 gem 'jekyll-redirect-from'
+
+# https://github.com/jekyll/jekyll-sitemap
+gem 'jekyll-sitemap'

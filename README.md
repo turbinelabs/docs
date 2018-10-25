@@ -13,6 +13,9 @@
 
 # Docs
 
+**This project is no longer maintained by Turbine Labs, which has
+[shut down](https://blog.turbinelabs.io/turbine-labs-is-shutting-down-and-our-team-is-joining-slack-2ad41554920c).**
+
 [![Apache 2.0](https://img.shields.io/badge/license-apache%202.0-blue.svg)](LICENSE)
 
 This repository hosts the source files for https://docs.turbinelabs.io. It is
